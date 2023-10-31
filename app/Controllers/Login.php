@@ -22,15 +22,17 @@ class Login extends BaseController
         $validData = $this->validator->getValidated();
         $sql       = "SELECT * FROM `users` WHERE `username` = ? AND `password` = ?";
         $query     = $db->query($sql, [$validData['username'], $validData['password']]);
+        $results   = $query->getRow();
 
-        if($query->getNumRows() == 0) {
+        if($query->getNumRows() == 0 || $query->getNumRows() > 1) {
             return view('templates/navbar.html') .
             view('login/login');
             session()->setFlashdata('error', 'Username or password is incorrect');
         }else{
-            $session->set('username', $row['username']);
-            $session->set('email', $validData['username']);
-            return view('login/lSuccess', $query->getResult());
+            $session->set('role', $results->role);
+            $session->set('username', $results->username);
+            $session->set('email', $results->email);
+            return view('login/lSuccess', $results);
         }
 
     }
