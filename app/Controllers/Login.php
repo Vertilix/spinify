@@ -6,12 +6,12 @@ class Login extends BaseController
 {
     public function login(): string {        
         $rules = [
-            'username'     => 'required|max_length[50]|min_length[3]',
-            'password'  => 'required|max_length[200]|min_length[6   ]',
+            'username'  => 'required|max_length[50]|min_length[3]',
+            'password'  => 'required|max_length[200]|min_length[6]',
         ];
 
         if (!$this->request->is('post') || !$this->validate($rules)) {
-            return view('templates/navbar.html') .
+            return view('templates/navbar') .
             view('login/login');
         }
 
@@ -19,7 +19,6 @@ class Login extends BaseController
         $sql       = "SELECT * FROM `users` WHERE `username` = ?";
         $query     = $this->db->query($sql, [$validData['username']]);
         $results   = $query->getRowArray();
-
         if(password_verify($validData['password'], $results['password'])){
             $this->session->set('user', $results);
             return view('login/lSuccess', $results);
@@ -37,7 +36,7 @@ class Login extends BaseController
         ];
 
         if (!$this->validate($rules) || !$this->request->is('post')) {
-            return view('templates/navbar.html') .
+            return view('templates/navbar') .
             view('login/register');
         }
 
