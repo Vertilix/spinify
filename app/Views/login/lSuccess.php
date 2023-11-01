@@ -6,12 +6,12 @@
     <title>success</title>
 </head>
 <body>
+    <pre>
     <?php
-    foreach($this->data as $row){
-        echo $row->username . "<br>";
-    }
+        echo $this->data['username'] . "<br>";
+        print_r($_SESSION) . "<br>";
     ?>
-
+    </pre>
     <a href="/login ">go back</a>
 </body>
 </html>
