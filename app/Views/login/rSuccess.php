@@ -6,6 +6,6 @@
     <title>success</title>
 </head>
 <body>
-    <a href="/login/register">go back</a>
+    <a href="/register">go back</a>
 </body>
 </html>

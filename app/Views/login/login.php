@@ -18,6 +18,6 @@
     </form>
 
 
-    <a href="/login/register">Register</a>
+    <a href="/register">Register</a>
 </body>
 </html>

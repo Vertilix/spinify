@@ -8,10 +8,9 @@
 <body>
     <pre>
     <?php
-        echo $this->data['username'] . "<br>";
         print_r($_SESSION) . "<br>";
     ?>
     </pre>
-    <a href="/login ">go back</a>
+    <a href="/login">go back</a>
 </body>
 </html>
