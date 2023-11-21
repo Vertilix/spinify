@@ -7,6 +7,7 @@
     <title>Login</title>
 </head>
 <body>
+    <?= $data['error'] ?? ""?>
     <form method="POST">
         <h5>Username</h5>
         <input type="text" name="username" value="<?= set_value('username') ?>" size="50">

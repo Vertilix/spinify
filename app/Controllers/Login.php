@@ -12,20 +12,27 @@ class Login extends BaseController
 
         if (!$this->request->is('post') || !$this->validate($rules)) {
             return view('templates/navbar') .
-            view('login/login');
+            view('login/login', [
+                'error' => session()->getFlashdata('error')
+            ]);
         }
 
         $validData = $this->validator->getValidated();
         $sql       = "SELECT * FROM `users` WHERE `username` = ?";
         $query     = $this->db->query($sql, [$validData['username']]);
         $results   = $query->getRowArray();
-        if(password_verify($validData['password'], $results['password'])){
-            $this->session->set('user', $results);
-            return redirect()->route('/');
+
+        if(isset($results['password']) && isset($results['password'])){
+            if(password_verify($validData['password'], $results['password'])){
+                $this->session->set('user', $results);
+                return redirect()->route('/');
+            }else{
+                session()->setFlashdata('error', 'Username or password is incorrect');
+                return redirect()->route('login');
+            }
         }else{
-            session()->setFlashdata('error', 'Username or password is incorrect');
-            return view('templates/navbar') .
-            view('login/login');
+            session()->setFlashdata('error', 'Something went wrong please try again later.');
+            return redirect()->route('login');
         }
     }
     
@@ -50,6 +57,7 @@ class Login extends BaseController
         $sql       = "SELECT * FROM `users` WHERE `username` = ?";
         $query     = $this->db->query($sql, [$validData['username']]);
         $results   = $query->getRowArray();
+
         if(isset($results['username'])){
             if($results['username'] == $validData['username']){
                 session()->setFlashdata('error', 'Username already exists');
@@ -57,6 +65,7 @@ class Login extends BaseController
                 view('login/register');
             }
         }
+
         $hashedPassword = password_hash($validData['password'], PASSWORD_DEFAULT);
         $sql            = "INSERT INTO `users`(`id`, `username`, `password`, `email`, `role`) VALUES (NULL, ?, ?, ?, 'guest')";
         $this->db->query($sql, [$validData['username'], $hashedPassword, $validData['email']]);
