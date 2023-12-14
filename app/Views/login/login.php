@@ -18,7 +18,6 @@
         <div><input type="submit" value="Submit"></div>
     </form>
 
-
-    <a href="/register">Register</a>
+    <a href="/register">Sign up</a>
 </body>
 </html>
