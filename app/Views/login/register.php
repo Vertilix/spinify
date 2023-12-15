@@ -21,7 +21,7 @@
             <div><input type="submit" value="Submit"></div>
         </form>
     
-        <a href="/login">Already have an account? Sign up here.</a>
+        <a href="/login">Already have an account? Sign in here.</a>
     </div>
 </body>
 </html>

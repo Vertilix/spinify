@@ -1,22 +1,38 @@
-.navbar {
-    position:fixed;
-    display:flex;
-    flex-wrap:wrap;
-    padding:1%;
-    width:100%;
+.nav-container {
+    width: 100%;
     background-color: #2A2826;
 }
 
-.navbar .item {
-    margin:5px;
-    font-weight:bold;
-    text-decoration: none !important;
-    color:#BFBFBF;
-    align-self: center;
+.navbar {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
 }
 
-.navbar .item:hover {
-    margin:5px;
+.nav-brand {
+    align-self: center;
+    font-size: 3rem;
+    color: #BFBFBF;
+}
+
+.nav-tabs {
+    align-self: center;
+    margin-left: auto;
+}
+
+.nav-tab {
+    display: inline-block;
+    margin: 5px;
+    color: #BFBFBF;
+}
+
+.nav-tabs .nav-tab {
+    font-size:1.4rem;
+}
+
+.nav-tabs .nav-tab:hover {
+    margin: 5px;
     text-decoration: none !important;
     transform: scale(1.05);
     -moz-transform: scale(1.05);
@@ -28,25 +44,18 @@
 
     transition: transform 0.03s ease-in-out;
     -webkit-transition: transform 0.03s ease-in-out;
-    -moz-transition:transform 0.03s ease-in-out;
-    -ms-transition:transform 0.03s ease-in-out;
+    -moz-transition: transform 0.03s ease-in-out;
+    -ms-transition: transform 0.03s ease-in-out;
     -webkit-transition: transform 0.03s ease-in-out;
-    color:#FFFFFF;
+    color: #FFFFFF;
 }
 
-.navbar .logo {
-    flex-grow:1;
-    margin:5px;
-    align-self: flex-start;
-}
-
-
-@media screen and (max-width: 430px) {
-    .navbar, .navbar .logo, .navbar .item
-    {
-        display:flex;
-        flex-direction: column;
-        align-items: center !important;
-        align-self: center !important;
+@media screen and (max-width: 488px) {
+    .navbar {
+        justify-content: center;
     }
-  }
+
+    .nav-tabs {
+        margin-left: 0 !important;
+    }
+}
