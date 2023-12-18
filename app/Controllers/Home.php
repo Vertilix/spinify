@@ -9,4 +9,10 @@ class Home extends BaseController
         return view('templates/navbar')
         . view('index');
     }
+
+    public function navSearch(): string
+    {
+        return view('templates/navbar')
+        . view('index');
+    }
 }

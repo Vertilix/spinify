@@ -12,3 +12,4 @@ $routes->post('login', 'Login::login');
 $routes->get('logout', 'Login::logout');
 $routes->get('register', 'Login::register');
 $routes->post('register', 'Login::register');
+$routes->post('navSearch', 'Home::navSearch');
