@@ -27,6 +27,12 @@
     color: #BFBFBF;
 }
 
+.nav-search-tab {
+    display: inline-block;
+    margin: 5px;
+    color: #BFBFBF;
+}
+
 .nav-tabs .nav-tab {
     font-size:1.4rem;
 }

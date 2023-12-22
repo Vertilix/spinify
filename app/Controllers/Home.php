@@ -12,6 +12,8 @@ class Home extends BaseController
 
     public function navSearch(): string
     {
+        $searchText = $this->request->getPost('navSearchText');
+
         return view('templates/navbar')
         . view('index');
     }
