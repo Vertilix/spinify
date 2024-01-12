@@ -1,6 +1,6 @@
 .nav-container {
     width: 100%;
-    background-color: #2A2826;
+    background-color: #121212;
 }
 
 .navbar {
@@ -13,7 +13,7 @@
 .nav-brand {
     align-self: center;
     font-size: 3rem;
-    color: #BFBFBF;
+    color: #ffffff;
 }
 
 .nav-tabs {
@@ -24,13 +24,13 @@
 .nav-tab {
     display: inline-block;
     margin: 5px;
-    color: #BFBFBF;
+    color: #ffffff;
 }
 
 .nav-search-tab {
     display: inline-block;
     margin: 5px;
-    color: #BFBFBF;
+    color: #ffffff;
 }
 
 .nav-tabs .nav-tab {
