@@ -41,7 +41,7 @@ class Login extends BaseController
         return redirect()->route('/');
     }
 
-    public function register(): string {
+    public function register() {
         $rules = [
             'username'  => 'required|max_length[50]|min_length[3]',
             'email'     => 'required|max_length[200]|min_length[3]',
@@ -69,8 +69,6 @@ class Login extends BaseController
         $hashedPassword = password_hash($validData['password'], PASSWORD_DEFAULT);
         $sql            = "INSERT INTO `users`(`id`, `username`, `password`, `email`, `role`) VALUES (NULL, ?, ?, ?, 'guest')";
         $this->db->query($sql, [$validData['username'], $hashedPassword, $validData['email']]);
-        return redirect()->route('/');
-        return view('templates/navbar') .
-        view('login/rSuccess');
+        return redirect()->route('login');
     }
 }

@@ -9,29 +9,37 @@
 </head>
 <body>
     <div class="flex">
-        <div class="sidebar-container">
-            <div class="sidebar-div" style="height:40%">
-                <div class="sidebar-background">
-                    <div class="nav-brand">
-                        <img src="https://via.placeholder.com/50" alt="">
-                        <h2>Spinify</h2>
-                    </div>
-                    <div class="nav-brand">
-                        <img src="https://via.placeholder.com/50" alt="">
-                        <h2>Spinify</h2>
-                    </div>
-                    <div class="nav-brand">
-                        <img src="https://via.placeholder.com/50" alt="">
-                        <h2>Spinify</h2>
-                    </div>
+        <div class="sidebar">
+            <div class="navbar">
+                <div>
+                    <img class="logo" src="logo2.png" alt="">
                 </div>
+                <a href="#" class="a-hover">
+                    <div>
+                        <img src="home.svg" width="35" height="35">
+                        <p>Home</p>
+                    </div>
+                </a>
+                <a href="#" class="a-hover">
+                    <div>
+                        <img src="search.svg" width="35" height="35">
+                        <p>Search</p>
+                    </div>
+                </a>
             </div>
-            <div class="sidebar-div" style="height:100%">
-                asdhsald
+            <div class="library">
+                <div class="lib-top">
+                    <a href="#" class="a-hover">Bibliotheek</a>
+                    <a href="#" class="a-hover">+</a>
+                </div>
+                <a href="#">Library</a>
+                <a href="#">Contact</a>
             </div>
         </div>
-        <div class="flex-main">
-            ahdklsad
+        <div class="main">
+            <a href="#">Home</a>
+            <a href="#">Library</a>
+            <a href="#">Contact</a>
         </div>
     </div>
 
