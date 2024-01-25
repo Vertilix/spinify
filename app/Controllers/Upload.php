@@ -2,12 +2,13 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class Upload extends BaseController
 {
-    public function uploadSong(): string
+    public function index(): string
     {
         $rules = [
             'songName'  => 'required|max_length[100]|min_length[1]',
+            'songFile'  => 'required|uploaded[songFile.mp3]|max_size[songFile,1024]',
             'artistName'  => 'required|max_length[100]|min_length[1]',
         ];
 
@@ -19,6 +20,6 @@ class Home extends BaseController
         }
         
         return view('templates/navbar')
-        . view('index');
+        . view('upload');
     }
 }

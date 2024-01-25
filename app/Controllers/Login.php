@@ -44,7 +44,7 @@ class Login extends BaseController
     public function register() {
         $rules = [
             'username'  => 'required|max_length[50]|min_length[3]',
-            'email'     => 'required|max_length[200]|min_length[3]',
+            'email'     => 'required|max_length[200]|min_length[5]',
             'password'  => 'required|max_length[200]|min_length[6]',
         ];
 
