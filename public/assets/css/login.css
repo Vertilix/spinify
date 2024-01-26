@@ -1,16 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Gothic Rounded';
-    text-decoration: none;
-}
-
-@font-face {
-    font-family: 'Gothic Rounded';
-    src: url('Gotham\ Rounded\ Medium.otf');
-}
-
 body {
     background: rgb(6,6,6);
     background: linear-gradient(0deg, rgba(6,6,6,1) 0%, rgba(42,42,42,1) 100%);    height: 100%;
