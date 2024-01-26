@@ -12,11 +12,11 @@ $routes->get('/', 'Home::index');
 $routes->get('upload', 'Upload::index');
 
 // Login
-$routes->get('login', 'Login::login');
-$routes->post('login', 'Login::login');
-$routes->get('logout', 'Login::logout');
-$routes->get('register', 'Login::register');
-$routes->post('register', 'Login::register');
+$routes->get('login', 'Auth::loginIndex');
+$routes->post('login', 'Auth::login');
+$routes->get('logout', 'Auth::logout');
+$routes->get('register', 'Auth::register');
+$routes->post('register', 'Auth::register');
 
 // Search for a song
 $routes->post('search', 'Home::navSearch');
