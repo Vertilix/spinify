@@ -6,8 +6,7 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('templates/navbar')
-        . view('index');
+        return view('index');
     }
 
     public function navSearch(): string

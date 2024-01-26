@@ -15,7 +15,7 @@ $routes->get('upload', 'Upload::index');
 $routes->get('login', 'Auth::loginIndex');
 $routes->post('login', 'Auth::login');
 $routes->get('logout', 'Auth::logout');
-$routes->get('register', 'Auth::register');
+$routes->get('register', 'Auth::registerIndex');
 $routes->post('register', 'Auth::register');
 
 // Search for a song

@@ -145,8 +145,19 @@ body {
 }
 
 .error {
-    color:red;
+    color:red !important;
     font-size: 1rem;
     text-align: center;
     margin-bottom: 20px;
+}
+
+.errors {
+    color:red !important;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.errors ul li{
+    list-style: none;
 }

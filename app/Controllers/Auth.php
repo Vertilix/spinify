@@ -49,13 +49,37 @@ class Auth extends BaseController
 
     public function register() {
         $rules = [
-            'username'  => 'trim|required|max_length[50]|min_length[3]',
-            'email'     => 'trim|validateEmail|required|max_length[200]|min_length[5]',
-            'password'  => 'trim|required|max_length[200]|min_length[6]',
+            'username'  => [
+                'rules' => 'trim|required|max_length[50]|min_length[3]',
+                'errors' => [
+                    'required' => 'Username is required',
+                    'max_length' => 'Username is too long',
+                    'min_length' => 'Username is too short',
+                ]
+            ],
+
+            'email'     => [
+                'rules' => 'trim|validateEmail|required|max_length[200]|min_length[5]',
+                'errors' => [
+                    'validateEmail' => 'Email is invalid',
+                    'required' => 'Email is required',
+                    'max_length' => 'Email is too long',
+                    'min_length' => 'Email is too short',
+                ]
+            ],
+
+            'password' => [
+                'rules' => 'trim|required|max_length[200]|min_length[6]',
+                'errors' => [
+                    'required' => 'Password is required',
+                    'max_length' => 'Password is too long',
+                    'min_length' => 'Password is too short',
+                ]
+            ],
         ];
 
         if (!$this->validate($rules)) {
-            session()->setFlashdata('error', 'Username or password is incorrect.');
+            session()->setFlashdata('error', \Config\Services::validation()->listErrors());
             return redirect()->route('register');
         }
 
