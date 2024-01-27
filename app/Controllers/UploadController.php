@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Upload extends BaseController
+class UploadController extends BaseController
 {
     public function index()
     {
@@ -21,35 +21,38 @@ class Upload extends BaseController
 
     public function uploadSong()
     {
-        if (isset($_SESSION['user'])) {
-            if ($_SESSION['user']['role'] == 'guest') {
-                return redirect()->route('/');
-            }
-            return view('templates/navbar')
-                . view('upload');
-        }else{
-            return redirect()->route('/');
-        }
+        $files = $this->request->getFiles();
+        var_dump($files);
 
-        $rules = [
-            'songName'  => 'required|max_length[100]|min_length[1]',
-            'songFile'  => 'uploaded[songFile]|max_size[songFile,10240]|ext_in[songFile,mp3,wav,ogg]',
-            'songDesc'  => 'trim|required|max_length[100]|',
-        ];
+        // if (isset($_SESSION['user'])) {
+        //     if ($_SESSION['user']['role'] == 'guest') {
+        //         return redirect()->route('/');
+        //     }
+        //     return view('templates/navbar')
+        //         . view('upload');
+        // }else{
+        //     return redirect()->route('/');
+        // }
 
-        // if (!$this->validate($rules)) {
-        //     return view('templates/navbar') .
-        //         view('/upload', [
-        //             'error' => session()->getFlashdata('error')
-        //         ]);
-        // } 
+        // $rules = [
+        //     'songName'  => 'required|max_length[100]|min_length[1]',
+        //     'songFile'  => 'uploaded[songFile]|max_size[songFile,10240]|ext_in[songFile,mp3,wav,ogg]',
+        //     'songDesc'  => 'trim|required|max_length[100]|',
+        // ];
 
-        $file = $this->request->getFile('songFile');
-        print_r($file);
+        // // if (!$this->validate($rules)) {
+        // //     return view('templates/navbar') .
+        // //         view('/upload', [
+        // //             'error' => session()->getFlashdata('error')
+        // //         ]);
+        // // } 
 
-        if ($file->isValid() && !$file->hasMoved()) {
-            echo "test";
-        }
+        // $file = $this->request->getFile('songFile');
+        // print_r($file);
+
+        // if ($file->isValid() && !$file->hasMoved()) {
+        //     echo "test";
+        // }
 
     }
 }
