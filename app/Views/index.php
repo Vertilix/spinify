@@ -68,7 +68,9 @@
             </div>
 
             <div class="main-content">
-
+                <div class="song-grid">
+                    
+                </div>
             </div>
         </div>
     </div>

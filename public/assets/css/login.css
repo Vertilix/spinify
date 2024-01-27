@@ -130,21 +130,3 @@ body {
 .signup-text a:hover {
     color: #a7a7a7;
 }
-
-.error {
-    color:red !important;
-    font-size: 1rem;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.errors {
-    color:red !important;
-    font-size: 1rem;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.errors ul li{
-    list-style: none;
-}

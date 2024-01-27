@@ -6,17 +6,18 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 // Home
-$routes->get('/', 'Home::index');
+$routes->get('/', 'IndexController::index');
 
 // Upload
-$routes->get('upload', 'Upload::index');
+$routes->get('upload', 'UploadController::index');
+$routes->post('upload', 'UploadController::uploadSong');
 
 // Login
-$routes->get('login', 'Auth::loginIndex');
-$routes->post('login', 'Auth::login');
-$routes->get('logout', 'Auth::logout');
-$routes->get('register', 'Auth::registerIndex');
-$routes->post('register', 'Auth::register');
+$routes->get('login', 'AuthController::loginIndex');
+$routes->post('login', 'AuthController::login');
+$routes->get('logout', 'AuthController::logout');
+$routes->get('register', 'AuthController::registerIndex');
+$routes->post('register', 'AuthController::register');
 
 // Search for a song
-$routes->post('search', 'Home::navSearch');
+$routes->post('search', 'IndexController::navSearch');
