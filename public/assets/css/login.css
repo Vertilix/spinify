@@ -101,20 +101,6 @@ body {
     margin-bottom: 20px;
 }
 
-.login-button {
-    align-self: center;
-    border:none;
-    border-radius: 35px;
-    width:200px;
-    padding:15px;
-    background:#1ed760;
-    margin-bottom:20px;
-}
-
-.login-button:hover {
-    background:#1aba52;
-}
-
 .signup-text 
 {
     color: #a7a7a7;

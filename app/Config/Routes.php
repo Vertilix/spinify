@@ -7,6 +7,9 @@ use CodeIgniter\Router\RouteCollection;
  */
 // Home
 $routes->get('/', 'IndexController::index');
+$routes->get('search', 'IndexController::search');
+$routes->get('library', 'IndexController::library');
+$routes->get('library/add', 'IndexController::addPlaylist');
 
 // Upload
 $routes->get('upload', 'UploadController::index');
@@ -20,4 +23,3 @@ $routes->get('register', 'AuthController::registerIndex');
 $routes->post('register', 'AuthController::register');
 
 // Search for a song
-$routes->post('search', 'IndexController::navSearch');

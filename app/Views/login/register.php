@@ -32,8 +32,8 @@
                 </div>
 
                 <p class="error"><?= session()->getFlashdata('error') ?? ""; ?></p>
-                <input class="login-button" type="submit" value="Sign up">
-
+                <input class="button" type="submit" value="Sign up">
+    
                 <h3 class="signup-text">Already have an account? <a href="/register">Log in</a></h3>
 
             </form>

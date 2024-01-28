@@ -30,7 +30,7 @@
 
                 <p class="error"><?= session()->getFlashdata('error') ?? ""; ?></p>
 
-                <input class="login-button" type="submit" value="Log in">
+                <input class="button" type="submit" value="Log in">
 
                 <h3 class="signup-text">Don't have an account? <a href="/register">Sign up</a></h3>
 
