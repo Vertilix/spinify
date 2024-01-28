@@ -71,8 +71,8 @@ class UploadController extends BaseController
                 if ($audioFile->isValid() && !$audioFile->hasMoved()) {
                     if ($songPicture->isValid() && !$songPicture->hasMoved()) {
                         $audioFileName = $audioFile->getRandomName();
-                        $audioFile->move(WRITEPATH . 'uploads/audio', $audioFileName);
-                        $filepath = WRITEPATH . 'uploads/audio/';
+                        $audioFile->move(ROOTPATH . 'public\assets\media\audio', $audioFileName);
+                        $filepath = ROOTPATH . 'public\assets\media\audio';                        ;
 
                         $validData = $this->validator->getValidated();
                         $sql       = "INSERT INTO `songs`(`id`, `userid`, `filename`, `location`, `songname`, `songpicture`, `songdescription`, `dateadded`) VALUES (null, ?, ?, ?, ?, ?, ?, ?)";

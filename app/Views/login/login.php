@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css'); ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/login.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/style.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/login.css'); ?>">
     <title>Log in</title>
 </head>
 
@@ -13,7 +13,7 @@
     <div class="main">
         <div class="navbar">
             <a href="/">
-                <img class="nav-logo" src="<?php echo base_url('assets/media/svgs/spinify.svg'); ?>" width="50px" alt="">
+                <img class="nav-logo" src="<?= base_url('assets/media/svgs/spinify.svg'); ?>" width="50px" alt="">
             </a>
         </div>
         <div class="main-content">

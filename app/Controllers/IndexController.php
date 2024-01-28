@@ -6,7 +6,15 @@ class IndexController extends BaseController
 {
     public function index(): string
     {
-        return view('index');
+        $sql       = "SELECT * FROM `songs`";
+        $query     = $this->db->query($sql);
+        $results   = $query->getRowArray();
+
+        if(count($results) > 0){
+            $data = ['songsArray' => $query->getResult()];
+        }
+        
+        return view('index', $data);
     }
 
     public function navSearch(): string
