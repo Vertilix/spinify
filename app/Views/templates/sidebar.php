@@ -9,7 +9,7 @@
                 <p>Home</p>
             </div>
         </a>
-        <a href="/search" class="nav-a-hover">
+        <a href="/" class="nav-a-hover">
             <div>
                 <img src="<?= base_url('assets/media/svgs/search.svg'); ?>" width="35" height="35">
                 <p>Search</p>

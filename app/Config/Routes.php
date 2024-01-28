@@ -23,3 +23,4 @@ $routes->get('register', 'AuthController::registerIndex');
 $routes->post('register', 'AuthController::register');
 
 // Search for a song
+$routes->post('/', 'IndexController::navSearch');

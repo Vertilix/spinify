@@ -22,11 +22,17 @@
                             <img src="data:image/png;base64, <?= base64_encode($song->songpicture ?? "") ?>">
                             <p><?= ($song->username ?? "") . " - " . ($song->songname ?? "") ?></p>
                         </div>
-                    <?php } } ?>
+                    <?php } } else { ?>
+                        <div class="main-text-center">
+                            <h1>No songs found.</h1>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
 
-            <div class="content-player-container">
+            
+
+            <div class="content-player-container" style="<?= ($songsArray ?? "") ? "display:block" : "display:none" ?>">
                 <h1 id="title">Select a song to start playing music</h1>
                 <div class="content-player">
                     <audio id="audio" controls>

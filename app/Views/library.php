@@ -18,14 +18,20 @@
 
             <div class="main-content">
                 <?php if (!isset($playlists)) { ?>
-                    <div class="libary-center">
+                    <div class="main-text-center">
                         <h1>You don't have a playlist yet</h1>
                         <a href="library/add" class="button">Create one</a>
                     </div>
+                <?php } else { ?>
+                    <div class="song-grid"> 
+                        <?php if(isset($songsArray)) { foreach($songsArray as $song) { ?>
+                            <div class="song-card" id="<?= $song->filename ?>" onclick="getSong(this.id, `<?= $song->songname ?>`, `<?= $song->location ?>`);">
+                                <img src="data:image/png;base64, <?= base64_encode($song->songpicture ?? "") ?>">
+                                <p><?= ($song->username ?? "") . " - " . ($song->songname ?? "") ?></p>
+                            </div>
+                        <?php } } ?>
+                    </div>
                 <?php } ?>
-                <div>
-
-                </div>
             </div>
         </div>
     </div>

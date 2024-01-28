@@ -25,9 +25,23 @@ class IndexController extends BaseController
     public function navSearch(): string
     {
         $searchText = $this->request->getPost('navSearchText');
+        $sql       =
+            "SELECT S.*, U.username
+            FROM users U
+            INNER JOIN songs S on (S.userid = U.id)
+            WHERE s.songname LIKE ?
+            LIMIT 5";
 
-        return view('templates/navbar')
-            . view('index');
+        $query     = $this->db->query($sql, [$searchText . '%']);
+        $results   = $query->getRowArray();
+
+        if (!empty($results)) {
+            $data = ['songsArray' => $query->getResult()];
+        }else{
+            $data = ['noResults' => 'No results found'];
+        }
+
+        return view('index', $data);
     }
 
     public function library(): string
@@ -37,7 +51,6 @@ class IndexController extends BaseController
 
     public function addPlaylist(): string
     {
-
         return view('library/form');
     }
 }

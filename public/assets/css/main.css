@@ -246,3 +246,10 @@ body {
     color: white;
     text-align: center;
 }
+
+.main-text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:white;
+}
