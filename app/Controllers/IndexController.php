@@ -10,11 +10,11 @@ class IndexController extends BaseController
         $query     = $this->db->query($sql);
         $results   = $query->getRowArray();
 
-        if(count($results) > 0){
+        if (!empty($results)) {
             $data = ['songsArray' => $query->getResult()];
         }
-        
-        return view('index', $data);
+
+        return view('index', $data ?? []);
     }
 
     public function navSearch(): string
@@ -22,6 +22,6 @@ class IndexController extends BaseController
         $searchText = $this->request->getPost('navSearchText');
 
         return view('templates/navbar')
-        . view('index');
+            . view('index');
     }
 }
