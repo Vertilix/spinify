@@ -18,7 +18,7 @@
 
             <div class="main-content">
                 <?php if (!isset($playlists)) { ?>
-                    <div class="main-text-center">
+                    <div class="library-text-center">
                         <h1>You don't have a playlist yet</h1>
                         <a href="library/add" class="button">Create one</a>
                     </div>

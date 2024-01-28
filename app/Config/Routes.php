@@ -11,6 +11,9 @@ $routes->get('search', 'IndexController::search');
 $routes->get('library', 'IndexController::library');
 $routes->get('library/add', 'IndexController::addPlaylist');
 
+// Search for a song
+$routes->post('/', 'IndexController::navSearch');
+
 // Upload
 $routes->get('upload', 'UploadController::index');
 $routes->post('upload', 'UploadController::uploadSong');
@@ -22,5 +25,3 @@ $routes->get('logout', 'AuthController::logout');
 $routes->get('register', 'AuthController::registerIndex');
 $routes->post('register', 'AuthController::register');
 
-// Search for a song
-$routes->post('/', 'IndexController::navSearch');

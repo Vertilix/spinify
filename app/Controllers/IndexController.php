@@ -37,11 +37,9 @@ class IndexController extends BaseController
 
         if (!empty($results)) {
             $data = ['songsArray' => $query->getResult()];
-        }else{
-            $data = ['noResults' => 'No results found'];
         }
 
-        return view('index', $data);
+        return view('index', $data ?? []);
     }
 
     public function library(): string

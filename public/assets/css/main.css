@@ -199,7 +199,7 @@ body {
 }
 
 .song-grid {
-    display: flex;;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
@@ -247,7 +247,7 @@ body {
     text-align: center;
 }
 
-.main-text-center {
+.library-text-center {
     display: flex;
     flex-direction: column;
     align-items: center;

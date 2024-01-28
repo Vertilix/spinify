@@ -15,22 +15,22 @@
         <div class="main">
             <?= view('templates/main-navbar'); ?>
 
-            <div class="main-content">
-                <div class="song-grid"> 
-                    <?php if(isset($songsArray)) { foreach($songsArray as $song) { ?>
-                        <div class="song-card" id="<?= $song->filename ?>" onclick="getSong(this.id, `<?= $song->songname ?>`, `<?= $song->location ?>`);">
-                            <img src="data:image/png;base64, <?= base64_encode($song->songpicture ?? "") ?>">
-                            <p><?= ($song->username ?? "") . " - " . ($song->songname ?? "") ?></p>
-                        </div>
-                    <?php } } else { ?>
-                        <div class="main-text-center">
-                            <h1>No songs found.</h1>
-                        </div>
-                    <?php } ?>
+            <div class="main-content" style="<?= ($songsArray ?? "") ? "" : "justify-content: center" ?>">
+                <div class="library-text-center" style="<?= ($songsArray ?? "") ? "display:none" : "" ?>">
+                    <h1>No songs found.</h1>
+                </div>
+                
+                <div class="song-grid">
+                    <?php if (isset($songsArray)) {
+                        foreach ($songsArray as $song) { ?>
+                            <div class="song-card" id="<?= $song->filename ?>" onclick="getSong(this.id, `<?= $song->songname ?>`, `<?= $song->location ?>`);">
+                                <img src="data:image/png;base64, <?= base64_encode($song->songpicture ?? "") ?>">
+                                <p><?= ($song->username ?? "") . " - " . ($song->songname ?? "") ?></p>
+                            </div>
+                        <?php }
+                    } ?>
                 </div>
             </div>
-
-            
 
             <div class="content-player-container" style="<?= ($songsArray ?? "") ? "display:block" : "display:none" ?>">
                 <h1 id="title">Select a song to start playing music</h1>
@@ -43,17 +43,18 @@
         </div>
     </div>
 
-<script>
-    const player = document.getElementById('player');
-    const title = document.getElementById('title');
-    function getSong(filename, songname, songlocation) {
-        title.innerHTML = songname;
+    <script>
+        const player = document.getElementById('player');
+        const title = document.getElementById('title');
 
-        player.src = "<?= base_url() ?>" + songlocation + filename;
-        player.parentNode.load();
-        player.parentNode.play();
-    }
-</script>
+        function getSong(filename, songname, songlocation) {
+            title.innerHTML = songname;
+
+            player.src = "<?= base_url() ?>" + songlocation + filename;
+            player.parentNode.load();
+            player.parentNode.play();
+        }
+    </script>
 
 </body>
 
