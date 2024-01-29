@@ -9,12 +9,12 @@ class AuthController extends BaseController
     }
 
     public function login() {        
-        $rules = [
+        $rules = [ // Regels om te checken of de ingevulde data correct is
             'username'  => 'trim|required|max_length[50]|min_length[3]',
             'password'  => 'trim|required|max_length[200]|min_length[6]',
         ];
 
-        if (!$this->validate($rules)) {
+        if (!$this->validate($rules)) { // Check of de data incorrect is
             session()->setFlashdata('error', 'Username or password is incorrect.');
             return redirect()->route('login');
         }
@@ -25,7 +25,7 @@ class AuthController extends BaseController
         $results   = $query->getRowArray();
 
         if(isset($results['password'])){
-            if(password_verify($validData['password'], $results['password'])){
+            if(password_verify($validData['password'], $results['password'])){ // Check of de ingevulde wachtwoord overeenkomt met de wachtwoord in de database
                 $this->session->set('user', $results);
                 return redirect()->route('/');
             }else{
@@ -48,7 +48,7 @@ class AuthController extends BaseController
     }
 
     public function register() {
-        $rules = [
+        $rules = [ // Regels met custom errors
             'username'  => [
                 'rules' => 'trim|required|max_length[50]|min_length[3]',
                 'errors' => [

@@ -7,7 +7,7 @@ use CodeIgniter\Files\File;
 class UploadController extends BaseController
 {
     public function index()
-    {
+    { // Check of de user wel op de pagina mag komen
         if (isset($_SESSION['user'])) {
             if ($_SESSION['user']['role'] == 'guest') {
                 return redirect()->route('/');
@@ -68,9 +68,10 @@ class UploadController extends BaseController
                 $audioFile = $this->request->getFile('songFile');
                 $songPicture = $this->request->getFile('songPicture');
 
+                // Check of de bestanden wel geupload zijn en nog niet naar een ander map zijn verplaatst
                 if ($audioFile->isValid() && !$audioFile->hasMoved()) {
                     if ($songPicture->isValid() && !$songPicture->hasMoved()) {
-                        $filepath = ROOTPATH . 'public\assets\media\audio';                        ;
+                        $filepath = ROOTPATH . 'public\assets\media\audio'; // Pad naar de map waar de audio files worden opgeslagen
                         $audioFileName = $audioFile->getRandomName();
                         $audioFile->move($filepath, $audioFileName);
 
